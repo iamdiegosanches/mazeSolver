@@ -1,7 +1,6 @@
 import pandas as pd
 import timeit
 from graph import Graph
-from pprint import pprint
 
 
 def create_graph(arq):
@@ -57,10 +56,8 @@ while op != '0':
         start_time = timeit.default_timer()
         maze, g1, start, end = create_graph(op)
         walk = g1.depth_search(start, end)
-        print(f"|| Caminho:")
+        print(f"|| Caminho: {walk}")
         execution_time = float('%g' % (timeit.default_timer() - start_time))
-        for i in range(0, len(walk), 10):
-            print(*walk[i:i + 10])
         print(f"|| Tempo de execucao: {execution_time}")
         show_walk(walk)
         print("|| O caminho está em result.txt \n")
